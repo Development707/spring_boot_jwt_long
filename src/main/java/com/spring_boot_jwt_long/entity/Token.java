@@ -10,7 +10,6 @@ import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
-@Table(name = "table_token")
 @Getter
 @Setter
 public class Token extends BaseEntity{

@@ -8,7 +8,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "table_role")
 @Getter
 @Setter
 public class Role extends BaseEntity {
@@ -16,7 +15,7 @@ public class Role extends BaseEntity {
     private String roleKey;
 
     @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-    @JoinTable(name = "table_role_perission",
+    @JoinTable(name = "role_perission",
             joinColumns = {@JoinColumn(name = "role_id")},
             inverseJoinColumns = {@JoinColumn(name = "premission_id")})
     private Set<Permission> permissions = new HashSet<>();
