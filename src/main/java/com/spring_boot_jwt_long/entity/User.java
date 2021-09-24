@@ -10,8 +10,10 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = "username")})
 public class User extends BaseEntity {
-    private String username, password;
+    private String username;
+    private String password;
 
     @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",

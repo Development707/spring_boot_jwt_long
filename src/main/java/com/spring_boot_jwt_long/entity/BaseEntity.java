@@ -35,7 +35,7 @@ public abstract class BaseEntity implements Serializable {
     @LastModifiedDate
     private Date modifiedDate;
 
-    @Column(name = "created_by")
+    @Column(name = "created_by", updatable = false)
     @CreatedBy
     private String createdBy;
 
