@@ -1,6 +1,6 @@
 package com.spring_boot_jwt_long.service;
 
-import com.spring_boot_jwt_long.authen.UserDetailsImpl;
+import com.spring_boot_jwt_long.jwt.UserDetailsImpl;
 import com.spring_boot_jwt_long.entity.User;
 import com.spring_boot_jwt_long.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.spring_boot_jwt_long.authen;
+package com.spring_boot_jwt_long.jwt;
 
 import com.spring_boot_jwt_long.entity.User;
 import lombok.Getter;

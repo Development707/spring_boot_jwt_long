@@ -1,6 +1,6 @@
 package com.spring_boot_jwt_long.service;
 
-import com.spring_boot_jwt_long.authen.UserDetailsImpl;
+import com.spring_boot_jwt_long.jwt.UserDetailsImpl;
 import com.spring_boot_jwt_long.entity.User;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
