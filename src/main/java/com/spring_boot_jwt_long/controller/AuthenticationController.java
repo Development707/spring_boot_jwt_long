@@ -4,26 +4,16 @@ import com.spring_boot_jwt_long.entity.Token;
 import com.spring_boot_jwt_long.entity.User;
 import com.spring_boot_jwt_long.jwt.JwtUtils;
 import com.spring_boot_jwt_long.jwt.UserDetailsImpl;
-import com.spring_boot_jwt_long.jwt.payload.JwtResponse;
 import com.spring_boot_jwt_long.jwt.payload.LoginRequest;
 import com.spring_boot_jwt_long.jwt.payload.RegisterRequest;
 import com.spring_boot_jwt_long.service.TokenService;
 import com.spring_boot_jwt_long.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
-import java.util.stream.Collectors;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -78,5 +68,11 @@ public class AuthenticationController {
 //        List<String> roles = (List<String>) userDetails.getAuthorities();
 //        return ResponseEntity.ok(new JwtResponse(userDetails.getUserId(),
 //                jwt,userDetails.getUsername(),userDetails.getPassword(),roles));
+    }
+
+    @GetMapping("/hello")
+    @PreAuthorize("hasAnyAuthority('USER_READ')")
+    public ResponseEntity hello(){
+        return ResponseEntity.ok("hello");
     }
 }
